@@ -1,29 +1,27 @@
-// C Program to print hourglass pattern using star *
+// C Program to print hollow full pyramid pattern using star
+// *
 #include <stdio.h>
+
 int main()
 {
     int rows = 5;
 
-    // first outer loop to iterate each row
-    for (int i = 0; i < 2 * rows - 1; i++) {
+    // first loop iterating through each row
+    for (int i = 0; i < rows; i++) {
 
-        // assigning comparator
-        int comp;
-        if (i < rows) {
-            comp = 2 * i + 1;
-        }
-        else {
-            comp = 2 * (2 * rows - i) - 3;
-        }
-
-        // first inner loop to print leading spaces
-        for (int j = 0; j < comp; j++) {
+        // first inner loop to print leading white space
+        for (int j = 0; j < 2 * i + 1; j++) {
             printf(" ");
         }
 
-        // second inner loop to print star *
-        for (int k = 0; k < 2 * rows - comp; k++) {
-            printf("* ");
+        // second inner loop to print star* and hollow white
+        // space
+        for (int k = 0; k < 2 * (rows - i) - 1; k++) {
+            if (k == 0 || k == 2 * (rows - i) - 2 || i == 0)
+                printf("* ");
+            else {
+                printf("  ");
+            }
         }
         printf("\n");
     }
